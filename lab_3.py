@@ -49,3 +49,28 @@ a_list = [tint, tfloat, tbool, tstr, tlist]
 
 for pa in a_list:
     type_info(pa)
+
+print("Введите int i:")
+i = int(input())
+
+print("Введите int j")
+j = int(input())
+
+print("Введите str t")
+t = str(input())
+
+a_list[i:j] = t
+a_list.insert(i, 10)
+a_list.reverse()
+print(*a_list)
+
+simbhol = "-"
+s = ["2", "3", "5", "7"]
+simbhol = simbhol.join(s)
+print(simbhol)
+
+b_list = simbhol.split('-')
+print(str(min(b_list)))
+print(str(max(b_list))) 
+
+
