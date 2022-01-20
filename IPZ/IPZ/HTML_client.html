@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru"> 
+	<head> 
+		<meta charset="UTF-8">
+		<title>Kosinov IPZ</title>
+        <link rel="shortcut icon" href="logo.png" type="image/png">
+	</head> 
+	<body> 
+		<tr><h1>Косинов Денис</h1><tr>
+        <h3>Вариант: 10</h3>
+        <a href="https://github.com/Gniloe-Aloe/RGSU_lab/tree/master/IPZ" target="_blank" >Sources</a>
+		<!-- http://localhost/cgi-bin/parser.py -->
+		<form method="get" action="http://localhost/cgi-bin/parser.py"> 	 
+		<script>
+			var name='';
+			var answer='';
+			var xhr=new XMLHttpRequest();
+			function subm1(keep_blank_values = "True") { 
+				name=prompt('Введите фамилию',''); 
+				if (name) { 
+					xhr.open('GET','http://localhost:8000/cgi-bin/parser.py?r='+ Math.random()+'&answer='+'&name='+name); 
+					xhr.send(null);
+				}
+			}
+			function subm2() { 
+				answer=(document.getElementById("answer")).value;
+				if (answer) { 
+					xhr.open('GET','http://localhost:8000/cgi-bin/parser.py?r='+ Math.random()+'&name='+'&answer='+answer); 
+					xhr.send(null); 
+				} 
+				else alert("Ответ не указан") 
+			} 
+			xhr.onload=function() { 
+				var myDiv=document.getElementById("div"); 
+				var resp=this.responseText; 
+				myDiv.innerHTML="<p><span style='color:blue;font-size:5.5mm'>"+resp+ "</span>";
+			}
+			
+		</script>
+		<h3>Тест: </h3>
+		<button onclick="subm1()">Ввести фамилию <br></button>
+		<input type = "text" size = 30 id = "answer"></input>
+		<button onclick="subm2()">Ответить <br></button>
+		<div id="div" />
+	</body> 
+</html> 
